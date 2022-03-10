@@ -13,52 +13,62 @@
 </head>
 
 <body>
-
     <section>
         <div class="container-fluid d-flex flex-column justify-content-top topone ">
             <h1 class="Page-title">IP Address Tracker</h1>
             <div class="searchbox">
-                <form action="/" method="post">
-                    <input type="text" name="IpAdress" id="" placeholder="Enter Your IP Adress here ...">
-                    <button type="submit" class="btn-search"> > </button>
-                </form>
+                <button type="submit" class="btn-search" id="locateIP"> Find my IP address </button>
             </div>
-
         </div>
         <div class="secondone container-fluid justify-content-center ">
             <div class="d-flex justify-content-center flexB mx-auto">
                 <div class="detailsbox">
                     <span class="title">IP ADRESS</span>
-                    <p class="info" id="ip">000.000.000.000</p>
+                    <p class="info" id="ip"></p>
                 </div>
                 <div class=" detailsbox">
                     <span class="title">LOCATION</span>
-                    <p class="info" id="location">AAAAA,AA,0000</p>
+                    <p class="info" id="location"></p>
                 </div>
                 <div class=" detailsbox">
                     <span class="title">TIMEZONE</span>
-                    <p class="info" id="timezone">UTC 0000</p>
+                    <p class="info" id="timezone"></p>
                 </div>
                 <div class=" detailsbox">
                     <span class="title">ISP</span>
-                    <p class="info" id="isp"> SPACEX</p>
+                    <p class="info" id="isp"></p>
                 </div>
 
             </div>
         </div>
-
-
     </section>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+<script>
+    const getIpBtn = document.getElementById("locateIP")
+    const ip = document.getElementById("ip")
+    const loc = document.getElementById("location")
+    const isp = document.getElementById("isp")
+    const tz = document.getElementById("timezone")
 
+    getIpBtn.addEventListener('click', () => getdata())
+
+    //function to fetch data from the backend
+    async function getdata() {
+        const data = await fetch('http://localhost:3000/ip/info');
+        const IP = await data.json();
+
+        ip.innerText = IP.data.ip;
+        loc.innerText = IP.data.city;
+        isp.innerText = IP.data.organization;
+        tz.innerText = IP.data.time_zone.current_time.substr(24);
+    }
+</script>
 
 </html>

@@ -49,3 +49,52 @@ input:focus-visible {
 .btn-search:hover {
   background-color: hsl(0, 0%, 25%);
 }
+.secondone {
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  width: 100%;
+}
+.flexB {
+  flex-direction: row;
+  background-color: white;
+  color: black;
+  height: 130px;
+  width: 1000px;
+  border-radius: 12px;
+  transform: translateY(-50%);
+}
+.detailsbox {
+  width: 250px;
+  padding: 3vmin 5vmin;
+  position: relative;
+}
+
+.detailsbox:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  z-index: 100;
+  width: 1.5px;
+  height: 50%; /* or 100px */
+  background: hsl(0, 0%, 59%);
+  opacity: 70%;
+  top: 30px;
+}
+.title {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  color: hsl(0, 0%, 59%);
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+.info {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  color: hsl(0, 0%, 17%);
+  letter-spacing: 1px;
+  font-size: 20px;
+  padding-top: 1.5vmin;
+}

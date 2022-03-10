@@ -1,0 +1,25 @@
+{
+  "name": "iptrackerapp",
+  "version": "1.0.0",
+  "description": "This App is to Track Your IP And Shows you info about it ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aymendev1/IpTrackerApp.git"
+  },
+  "author": "Ayman Azougar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aymendev1/IpTrackerApp/issues"
+  },
+  "homepage": "https://github.com/aymendev1/IpTrackerApp#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "pug": "^3.0.2",
+    "request": "^2.88.2"
+  }
+}
